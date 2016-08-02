@@ -1,0 +1,120 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: -moz-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+  background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue","STHeitiTC-Light","Arial";
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.2);
+}
+
+.chat-thread {
+  margin: 24px auto 0 auto;
+  padding: 0 20px 0 0;
+  list-style: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat-thread dd {/*
+  animation: show-chat-even 0.3s 1 ease-in;
+  -moz-animation: show-chat-even 0.3s 1 ease-in;
+  -webkit-animation: show-chat-even 0.3s 1 ease-in;*/
+  position: relative;
+  clear: both;
+  display: inline-block;
+  padding: 16px 30px 16px 20px;
+  margin: 0 0 30px 0;
+  float: left;
+  margin-left: 80px;
+  color: #0AD5C1;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.2);
+}
+
+/* Chat - Avatar */
+.chat-thread dd:before {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  content: '';
+}
+
+.chat-thread dd:after{
+  border-left: 15px solid transparent;
+  left: -15px;
+}
+
+.chat-thread dt {/*
+  animation: show-chat-even 0.3s 1 ease-in;
+  -moz-animation: show-chat-even 0.3s 1 ease-in;
+  -webkit-animation: show-chat-even 0.3s 1 ease-in;*/
+  position: relative;
+  clear: both;
+  display: inline-block;
+  padding: 0 0 0 20px;
+  margin: 0 0 6px 0;
+  float: left;
+  margin-left: 80px;
+  color: #0EC879;
+  font-size: 14px;
+  border-radius: 10px;
+  
+}
+
+@media all and (min-width: 768px) {
+  .chat-thread {
+    position: absolute;
+    right: 10px;
+    width: 500px;
+    height: calc(100%);
+    top: 0;
+    padding: 20px 20px 20px 0px;
+    margin: 0;
+    z-index: 100;
+  }
+}
+
+
+
+@keyframes show-chat-even {
+  0% {
+    margin-left: -240px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@-moz-keyframes show-chat-even {
+  0% {
+    margin-left: -240px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@-webkit-keyframes show-chat-even {
+  0% {
+    margin-left: -240px;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
