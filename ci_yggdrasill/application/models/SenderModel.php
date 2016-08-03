@@ -92,7 +92,7 @@ class SenderModel extends CI_Model
         $row=$this->db->get_where('group_permission', array('group_id'=>$group_id), 1)->row();
         if (!isset($row))
         {
-            $this->db->insert('group_permission', array('group_id'=>$group_id, 'qq_id'=>$qq_id));
+            $this->db->insert('group_permission', array('group_id'=>$group_id, 'qq_id'=>$sender));
             return true;
         }
         else
@@ -129,27 +129,33 @@ class SenderModel extends CI_Model
     public function insertChat($group_id, $qq_id, $name, $chat_text)
     {
         $ep_id=$this->getLastEPID($group_id);
-        $this->db->query("INSERT INTO chat (ep_id, chat_text, type, name, qq_id, group_id, uu_id) VALUES ($ep_id, '$chat_text', 'chat', '$name', $qq_id, $group_id, UUID())");
+        $this->db->insert('chat', array('ep_id'=>$ep_id, 'chat_text'=>$chat_text, 'type'=>'chat', 'name'=>$name, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (ep_id, chat_text, type, name, qq_id, group_id, uu_id) VALUES ($ep_id, '$chat_text', 'chat', '$name', $qq_id, $group_id, UUID())");
     }
     
     public function insertDice($group_id, $qq_id, $name, $chat_text, $dice_result)
     {
         $ep_id=$this->getLastEPID($group_id);
-        $this->db->query("INSERT INTO chat (ep_id, chat_text, type, name, qq_id, group_id, dice_result, uu_id) VALUES ($ep_id, '$chat_text', 'dice', '$name', $qq_id, $group_id, $dice_result, UUID())");
+        $this->db->insert('chat', array('ep_id'=>$ep_id, 'chat_text'=>$chat_text, 'type'=>'dice', 'name'=>$name, 'qq_id'=>$qq_id, 'group_id'=>$group_id, 'dice_result'=>$dice_result, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (ep_id, chat_text, type, name, qq_id, group_id, dice_result, uu_id) VALUES ($ep_id, '$chat_text', 'dice', '$name', $qq_id, $group_id, $dice_result, UUID())");
     }
     
     public function insertBroadcast($group_id, $text)
     {
         $ep_id=$this->getLastEPID($group_id);
-        $this->db->query("INSERT INTO chat (ep_id, chat_text, type, group_id, uu_id) VALUES ($ep_id, '$text', 'broadcast', $group_id, UUID())");
+        $this->db->insert('chat', array('ep_id'=>$ep_id, 'chat_text'=>$text, 'type'=>'broadcast', 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (ep_id, chat_text, type, group_id, uu_id) VALUES ($ep_id, '$text', 'broadcast', $group_id, UUID())");
     }
     
+
     public function insertStart($group_id, $qq_id)
     {
         $access_code=$this->getRandomString(10);
-        $this->db->query("INSERT INTO episode (group_id, status, access_code, uu_id) VALUES ($group_id, 'running', '$access_code', UUID())");
+        $this->db->insert('episode', array('group_id'=>$group_id, 'status'=>'running', 'access_code'=>$access_code, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO episode (group_id, status, access_code, uu_id) VALUES ($group_id, 'running', '$access_code', UUID())");
         $ep_id=$this->getLastEPID($group_id);
-        $this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('start', $ep_id, $qq_id, $group_id, UUID())");
+        $this->db->insert('chat', array('type'=>'start', 'ep_id'=>$ep_id, 'qq_id'=>$qq_id, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('start', $ep_id, $qq_id, $group_id, UUID())");
         return $access_code;
     }
     
@@ -157,7 +163,8 @@ class SenderModel extends CI_Model
     {
         $ep_id=$this->getLastEPID($group_id);
         $ep_info=$this->db->get_where('episode', array('id'=>$ep_id), 1)->row();
-        $this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('end', $ep_id, $qq_id, $group_id, UUID())");
+        $this->db->insert('chat', array('type'=>'end', 'ep_id'=>$ep_id, 'qq_id'=>$qq_id, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('end', $ep_id, $qq_id, $group_id, UUID())");
         
         $start_time=preg_replace('/[ :]/','_',$ep_info->start_time);
         $end_time=preg_replace('/[ :]/','_',date("Y-m-d H:i:s",time()));
@@ -174,7 +181,8 @@ class SenderModel extends CI_Model
     public function insertPause($group_id, $qq_id)
     {
         $ep_id=$this->getLastEPID($group_id);
-        $this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('pause', $ep_id, $qq_id, $group_id, UUID())");
+        $this->db->insert('chat', array('type'=>'pause', 'ep_id'=>$ep_id, 'qq_id'=>$qq_id, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('pause', $ep_id, $qq_id, $group_id, UUID())");
         $this->db->update('episode', array('status'=>'paused'), array('id'=>$ep_id));
     }
     
@@ -182,7 +190,8 @@ class SenderModel extends CI_Model
     {
         $ep_id=$this->getLastEPID($group_id);
         //$this->db->delete('chat', array('type'=>'pause', 'group_id'=>$group_id, 'ep_id'=>$ep_id));
-        $this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('resume', $ep_id, $qq_id, $group_id, UUID())");
+        $this->db->insert('chat', array('type'=>'resume', 'ep_id'=>$ep_id, 'qq_id'=>$qq_id, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        //$this->db->query("INSERT INTO chat (type, ep_id, qq_id, group_id, uu_id) VALUES ('resume', $ep_id, $qq_id, $group_id, UUID())");
         $this->db->update('episode', array('status'=>'running'), array('id'=>$ep_id));
     }
     
@@ -236,7 +245,7 @@ class SenderModel extends CI_Model
     
     public function getLastContent($group_id, $ep_id, $limit = 5)
     {
-        $content=$this->db->query("SELECT * FROM chat WHERE id IN (SELECT p.id FROM (SELECT id FROM chat WHERE (type<>'start' AND type<>'end') AND group_id=$group_id AND ep_id=$ep_id ORDER BY id DESC LIMIT $limit) AS p) ORDER BY id")->result_array();
+        $content=$this->db->query("SELECT * FROM chat WHERE id IN (SELECT p.id FROM (SELECT id FROM chat WHERE type IN ('chat', 'dice', 'broadcast') AND group_id=$group_id AND ep_id=$ep_id ORDER BY id DESC LIMIT $limit) AS p) ORDER BY id")->result_array();
         
         $content=$this->arrangeContent($content);
         
@@ -270,7 +279,7 @@ class SenderModel extends CI_Model
         $row=$this->db->get_where('user', array('qq_id'=>$qq_id), 1)->row();
         if (!isset($row))
         {
-            $reg_code=getRandomString(16);
+            $reg_code=$this->getRandomString(16);
             $this->db->insert('user', array('qq_id'=>$qq_id, 'reg_code'=>$reg_code));
             return $reg_code;
         }

@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @property  SenderModel $SenderModel
+ */
 class Sender extends CI_Controller
 {
     public function __construct()
@@ -42,7 +46,7 @@ class Sender extends CI_Controller
         
         call_user_func_array(array($this,$type), array($msg));
     }
-    
+
     private function doChat($msg)
     {
         if (!$this->SenderModel->isRunning($msg->group_id))
@@ -57,7 +61,7 @@ class Sender extends CI_Controller
         strpos($chat_text,'【')===0 || 
         $chat_text=='“”')
             die(build_return('OK', array('errmsg'=>'消息被忽略')));
-        
+
         $this->SenderModel->insertChat($msg->group_id, $msg->qq_id, $msg->name, $chat_text);
         echo build_return('OK');
     }
