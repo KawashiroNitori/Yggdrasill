@@ -91,7 +91,7 @@ $(function(){
                         str+='<td><a target="_blank" href="/episode/view/'+group_id+'/'+data.info[ep].access_code+'">'+data.info[ep].name+'</a></td>';
                         str+='<td class="text-right" data-toggle="tooltip" data-placement="left" data-container="body" title="'+moment.unix(data.info[ep].start_time).format('YYYY-MM-DD HH:mm:ss')+'">'+moment.unix(data.info[ep].start_time).fromNow()+'</td>';
                         str+='<td>'+getTimeDiff(data.info[ep].start_time, data.info[ep].end_time)+'</td>';
-                        str+='<td><a class="btn btn-primary btn-xs" role="button" href="/episode/download/'+group_id+'/'+data.info[ep].access_code+'"><span class="glyphicon glyphicon-cloud-download"></span>下载</a></td>';
+                        str+='<td><a class="btn btn-primary btn-xs" role="button" href="/episode/download/'+group_id+'/'+data.info[ep].access_code+'"><span class="glyphicon glyphicon-cloud-download"></span>&nbsp;&nbsp;下载</a></td>';
                         str+='<tr>';
                         list.append(str);
                     }
