@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
-    <link href="//cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <link href="/css/flat-ui.min.css" rel="stylesheet">
     <link href="/css/spinner.css" rel="stylesheet">
     <link href="/css/font.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
+      <script src="/js/vendor/html5shiv.js"></script>
+      <script src="/js/vendor/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
@@ -55,9 +55,9 @@
 
 
     <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/flat-ui/2.3.0/js/flat-ui.min.js"></script>
+    <script src="/js/flat-ui.min.js"></script>
 
   </body>
   

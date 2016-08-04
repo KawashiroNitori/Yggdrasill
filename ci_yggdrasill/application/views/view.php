@@ -17,8 +17,8 @@ foreach ($content as $row)
     <meta charset="UTF-8">
     <title><?=$group_name?> - Belldandy</title>
     <!-- Loading Flat UI -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/flat-ui.min.css" rel="stylesheet">
     <link href="/css/spinner.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/font.css" rel="stylesheet">
@@ -55,9 +55,9 @@ foreach ($content as $row)
   <?php endif; ?>
   
     <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//cdn.bootcss.com/flat-ui/2.3.0/js/flat-ui.min.js"></script>
+    <script src="/js/flat-ui.min.js"></script>
     <script src="/js/view.js"></script>
   </body>
   <?php if ($status=='running'): ?>
