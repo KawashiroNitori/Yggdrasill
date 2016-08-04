@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f168db85-701b-4f5c-8673-373a3895f846" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ci_yggdrasill/application/controllers/Group.php" afterPath="$PROJECT_DIR$/ci_yggdrasill/application/controllers/Group.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ci_yggdrasill/application/controllers/Sender.php" afterPath="$PROJECT_DIR$/ci_yggdrasill/application/controllers/Sender.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ci_yggdrasill/application/controllers/View.php" afterPath="$PROJECT_DIR$/ci_yggdrasill/application/controllers/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ci_yggdrasill/application/models/AuthModel.php" afterPath="$PROJECT_DIR$/ci_yggdrasill/application/models/AuthModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ci_yggdrasill/application/views/main_page.php" afterPath="$PROJECT_DIR$/ci_yggdrasill/application/views/main_page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ci_yggdrasill/application/views/view.php" afterPath="$PROJECT_DIR$/ci_yggdrasill/application/views/view.php" />
-    </list>
+    <list default="true" id="f168db85-701b-4f5c-8673-373a3895f846" name="Default" comment="" />
     <ignored path="Yggdrasill.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -496,12 +487,12 @@
       <workItem from="1470198039849" duration="8295000" />
       <workItem from="1470208170890" duration="122000" />
       <workItem from="1470208299765" duration="5687000" />
-      <workItem from="1470282433352" duration="8463000" />
+      <workItem from="1470282433352" duration="8986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26744000" />
+    <option name="totallyTimeSpent" value="27267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
