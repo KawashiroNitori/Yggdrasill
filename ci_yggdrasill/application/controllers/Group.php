@@ -53,9 +53,9 @@ class Group extends CI_Controller
                     $newRow=array();
                     $newRow['uuid']=$row->uu_id;
                     $newRow['type']=$row->type;
-                    $newRow['name']=$row->name;
+                    $newRow['name']=htmlentities($row->name, ENT_QUOTES, 'UTF-8');
                     $newRow['qq_id']=(int)$row->qq_id;
-                    $newRow['chat_text']=$row->chat_text;
+                    $newRow['chat_text']=htmlentities($row->chat_text, ENT_QUOTES, 'UTF-8');
                     $newRow['time']=strtotime($row->time);
                     if ($row->type=='dice')
                         $newRow['dice_result']=$row->dice_result;

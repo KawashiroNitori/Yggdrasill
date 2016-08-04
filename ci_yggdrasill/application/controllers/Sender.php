@@ -53,6 +53,7 @@ class Sender extends CI_Controller
             die(build_return('no_running_episode'));
         
         $chat_text=trim(preg_replace('/\[CQ:.*\]/','',$msg->text));
+        $chat_text=html_entity_decode($chat_text, ENT_QUOTES, 'UTF-8');
         if (strlen($chat_text)==0 || 
         $msg->qq_id==1000000 || 
         strpos($chat_text,'(')===0 || 

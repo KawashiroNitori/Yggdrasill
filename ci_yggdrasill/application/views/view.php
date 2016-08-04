@@ -28,8 +28,8 @@ foreach ($content as $row)
     <dl class="chat-thread" group-id="<?=$group_id?>" status="<?=$status?>">
         <?php foreach ($content as $row): ?>
         <?php if ($row->type=='chat'): ?>
-            <dt uuid="<?=$row->uu_id?>"><?=$row->name?></dt>
-            <dd><?=$row->chat_text?></dd>
+            <dt uuid="<?=$row->uu_id?>"><?=htmlentities($row->name, ENT_QUOTES, 'UTF-8')?></dt>
+            <dd><?=htmlentities($row->chat_text, ENT_QUOTES, 'UTF-8')?></dd>
         <?php endif; ?>
         <?php endforeach; ?>
     </dl>
