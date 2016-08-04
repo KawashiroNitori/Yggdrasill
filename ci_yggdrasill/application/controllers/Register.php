@@ -6,7 +6,7 @@ class Register extends CI_Controller
     {
         $base=base_url();
         if ($this->session->uid)
-            header("Location: $base");
+            redirect('/');
         else
             $this->load->view('register');
         

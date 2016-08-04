@@ -17,6 +17,12 @@ class Auth extends CI_Controller
             die(build_return('too_short_username'));
         else if (strlen($request->password)<6)
             die(build_return('too_short_password'));
+        else if (strlen($request->username)>18)
+            die(build_return('too_long_username'));
+        else if (strlen($request->password)>24)
+            die(build_return('too_long_password'));
+        else if (!preg_match('/^[a-zA-Z0-9_]+$/', $request->username))
+            die(build_return('illegal_char_in_username'));
         else if (!$this->AuthModel->isValidRegcode($request->username, $request->reg_code))
             die(build_return('invalid_regcode'));
         else if ($this->AuthModel->isUsedUsername($request->username))

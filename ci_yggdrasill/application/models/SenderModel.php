@@ -129,7 +129,7 @@ class SenderModel extends CI_Model
     public function insertChat($group_id, $qq_id, $name, $chat_text)
     {
         $ep_id=$this->getLastEPID($group_id);
-        $this->db->insert('chat', array('ep_id'=>$ep_id, 'chat_text'=>$chat_text, 'type'=>'chat', 'name'=>$name, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
+        $this->db->insert('chat', array('ep_id'=>$ep_id, 'chat_text'=>$chat_text, 'type'=>'chat', 'name'=>$name, 'qq_id'=>$qq_id, 'group_id'=>$group_id, 'uu_id'=>uuid_create()));
         //$this->db->query("INSERT INTO chat (ep_id, chat_text, type, name, qq_id, group_id, uu_id) VALUES ($ep_id, '$chat_text', 'chat', '$name', $qq_id, $group_id, UUID())");
     }
     

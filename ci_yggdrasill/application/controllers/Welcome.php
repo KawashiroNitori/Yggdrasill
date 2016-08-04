@@ -33,9 +33,14 @@ class Welcome extends CI_Controller {
             redirect('/login');
         else
         {
-            $data=array();
+            $data=[];
             $data['username']=$this->session->username;
             $data['groupList']=$this->GroupModel->getGroupInfo($this->session->qq_id);
+            $groupArr=[];
+            foreach ($data['groupList'] as $group)
+                $groupArr[]=$group->group_id;
+            $this->session->groups=$groupArr;
+            session_write_close();
             $this->load->view('main_page', $data);
         }
             

@@ -11,7 +11,7 @@ class Group extends CI_Controller
     
     public function get_episode($group_id)
     {
-        if (!$this->session->uid)
+        if (!in_array($group_id, $this->session->groups))
         {
             header('HTTP/1.1 403 Forbidden');
             return;

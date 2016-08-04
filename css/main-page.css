@@ -79,7 +79,7 @@
     left:0;
     top:0;
     display:none;
-    z-index=1000;
+    z-index:1000;
 }
 
 .flex-container {
@@ -101,7 +101,7 @@
 .navbar {
     -webkit-box-shadow: 0 8px 6px -6px #BBB;
     -moz-box-shadow: 0 8px 6px -6px #BBB;
-    box-shadow: 0 8px 6px -6px 10px #BBB;
+    box-shadow: 0 8px 6px -6px #BBB;
 
     /* the rest of your styling */
 }
