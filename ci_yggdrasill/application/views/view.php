@@ -29,7 +29,7 @@ foreach ($content as $row)
         <?php foreach ($content as $row): ?>
         <?php if ($row->type=='chat'): ?>
             <dt uuid="<?=$row->uu_id?>"><?=htmlentities($row->name, ENT_QUOTES, 'UTF-8')?></dt>
-            <dd><?=htmlentities($row->chat_text, ENT_QUOTES, 'UTF-8')?></dd>
+            <dd><?=str_replace("\n", '<br>', htmlentities($row->chat_text, ENT_QUOTES, 'UTF-8'))?></dd>
         <?php endif; ?>
         <?php endforeach; ?>
     </dl>
