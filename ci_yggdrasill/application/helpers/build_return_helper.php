@@ -1,4 +1,9 @@
 <?php
+/**
+ * @param $err_str
+ * @param null $other_args
+ * @return null|string
+ */
 function build_return($err_str, $other_args = NULL)
 {
     $_ERROR_MSG=array
