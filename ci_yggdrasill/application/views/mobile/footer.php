@@ -1,9 +1,11 @@
   <script src="/js/jquery.min.js"></script>
   <script src="/js/flat-ui.min.js"></script>
   <script src="/js/angular.min.js"></script>
-  <?php foreach ($js as $link): ?>
-    <script src="<?=$link?>"></script>
-  <?php endforeach; ?>
+  <?php if (isset($js)): ?>
+    <?php foreach ($js as $link): ?>
+      <script src="<?=$link?>"></script>
+    <?php endforeach; ?>
+  <?php endif; ?>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

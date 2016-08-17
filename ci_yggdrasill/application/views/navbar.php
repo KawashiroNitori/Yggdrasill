@@ -19,7 +19,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if (isset($username) && $username != ''): ?>
-                        <li><a href="/my"><span class="glyphicon glyphicon-user"
+                        <li><a href="/home"><span class="glyphicon glyphicon-user"
                                                 aria-hidden="true"></span> <?= $username ?></a></li>
                         <li><a href="/auth/logout">退出</a></li>
                     <?php else: ?>
