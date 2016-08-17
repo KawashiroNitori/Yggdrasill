@@ -12,5 +12,13 @@
           <link href="<?=$link?>" rel="stylesheet">
       <?php endforeach; ?>
     <?php endif; ?>
+    <script async src="/js/jquery.min.js"></script>
+    <script async src="/js/flat-ui.min.js"></script>
+    <script async src="/js/angular.min.js"></script>
+    <?php if (isset($js)): ?>
+      <?php foreach ($js as $link): ?>
+        <script async src="<?=$link?>"></script>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </head>
   <body>
